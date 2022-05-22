@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coupons-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coupons
+  template:
+    metadata:
+      labels:
+        app: coupons
+    spec:
+      containers:
+        - name: coupons
+          image: public.ecr.aws/x6n6c8i2/coupons:latest
+          ports:
+            - containerPort: 5000
